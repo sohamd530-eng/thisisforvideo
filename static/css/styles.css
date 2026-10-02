@@ -1,0 +1,236 @@
+/* ==========================================================================
+   SurakshaTaap Pune - PMC Tactical Disaster Command Center
+   Aesthetic: Precision Swiss/Nordic Climate Intelligence System (Zero Fluff)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --bg-base: #080b11;
+    --bg-surface: #0e131f;
+    --bg-elevated: #141b2d;
+    --bg-highlight: #1b243b;
+    --border-subtle: #1c263c;
+    --border-strong: #2a3b5c;
+    --border-active: #3b82f6;
+    
+    /* Functional Alert Spectrum */
+    --c-safe: #10b981;
+    --c-caution: #f59e0b;
+    --c-warning: #f97316;
+    --c-danger: #ef4444;
+    --c-critical: #e11d48;
+    --c-tech: #0284c7;
+    --c-telemetry: #38bdf8;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Custom Minimalist Scrollbars */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Tactical Background Grid Pattern */
+.bg-grid-pattern {
+    background-size: 32px 32px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Map Styling */
+#map {
+    height: 100%;
+    min-height: 540px;
+    width: 100%;
+    background-color: var(--bg-base);
+    z-index: 10;
+}
+
+.leaflet-container {
+    background: #080b11 !important;
+}
+
+/* Leaflet Custom Popups & Tooltips */
+.custom-popup .leaflet-popup-content-wrapper,
+.leaflet-tooltip-pane .custom-popup {
+    background: #0f1523 !important;
+    color: #f8fafc !important;
+    border: 1px solid #243350 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.75) !important;
+    padding: 0 !important;
+}
+
+.custom-popup .leaflet-popup-tip {
+    background: #0f1523 !important;
+}
+
+/* Ward Centroid Labels */
+.ward-badge-pill {
+    background: rgba(11, 16, 28, 0.92);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    color: #e2e8f0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    transition: all 0.15s ease;
+}
+
+.ward-badge-pill:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+    transform: translateY(-1px);
+}
+
+/* Tactical Sensor Data Cards */
+.data-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-card:hover {
+    border-color: var(--border-strong);
+}
+
+.data-card-active {
+    border-color: var(--border-active) !important;
+    background: #111827;
+}
+
+/* Range Slider - Precision Meter */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: var(--border-subtle);
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: #38bdf8;
+    cursor: pointer;
+    border: 1px solid #080b11;
+    box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+    transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    background: #7dd3fc;
+}
+
+/* Status Indicator Dot */
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pulse-dot {
+    animation: status-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes status-ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* High-Contrast Tactical Tickers */
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 3px 8px;
+    background: rgba(20, 27, 45, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+}
+
+/* Modal Drawer Backdrop */
+.glass-modal {
+    background: rgba(8, 12, 20, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-strong);
+}
+
+/* High-contrast status badges */
+.badge-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+.badge-warning {
+    background: rgba(249, 115, 22, 0.15);
+    color: #fb923c;
+    border: 1px solid rgba(249, 115, 22, 0.35);
+}
+.badge-caution {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.badge-safe {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.badge-critical {
+    background: rgba(225, 29, 72, 0.2);
+    color: #fda4af;
+    border: 1px solid rgba(225, 29, 72, 0.5);
+}
